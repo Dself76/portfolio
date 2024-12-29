@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Number Display</title>
+</head>
+<body>
+    <!-- Add an element to display the number -->
+    <div id="display-number"></div>
+    <a href="../index.html">Home</a>
+
+
+    <!-- Add the JavaScript with error handling -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            try {
+                // Get the number from URL parameters
+                const urlParams = new URLSearchParams(window.location.search);
+                const number = urlParams.get('number');
+                
+                // Check if we have a display element and a number
+                const displayElement = document.getElementById('display-number');
+                if (displayElement && number) {
+                    displayElement.textContent = number;
+                } else {
+                    console.error('Either display element or number not found');
+                }
+            } catch (error) {
+                console.error('Error displaying number:', error);
+            }
+        });
+    </script>
+</body>
+</html>
